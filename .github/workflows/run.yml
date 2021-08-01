@@ -5,7 +5,7 @@ on: push
 jobs:
   super-lint:
     name: Lint code base
-    runs-on: linus-latest
+    runs-on: linux-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@main
