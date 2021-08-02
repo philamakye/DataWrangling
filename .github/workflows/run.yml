@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
 
-      - name: Run super-linter
+      - name: Run Super-Linter
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
@@ -31,7 +31,5 @@ jobs:
    - name: Process Data  
      run: |
        python Datopian.py
-     env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+
        
