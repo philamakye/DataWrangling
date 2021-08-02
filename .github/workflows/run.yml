@@ -15,7 +15,7 @@ jobs:
         SECRETS: ${{ toJson(secrets) }}
         GITHUB: ${{ toJson(github) }}
       with:
-        notebook: "PATHTONOTEBOOK.ipynb"
+        notebook: "Datopian.ipynb"
         params: "PATHTOPARAMS.json"
         isReport: False
         poll: True
