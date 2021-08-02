@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
 
-      - name: Run Super-Linter
+      - name: Run super-linter
         uses: github/super-linter@v3
         env:
           DEFAULT_BRANCH: main
