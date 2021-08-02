@@ -9,11 +9,8 @@ import pandas as pd
 # write to csv
 import csv
 
-# Time
-import time
 
-#Visuals
-import matplotlib.pyplot as plt
+
 
 
 

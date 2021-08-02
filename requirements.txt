@@ -3,4 +3,4 @@ pandas
 mistune
 papermill
 notebook
-matplotlib
+
