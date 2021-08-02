@@ -1,28 +1,37 @@
-name: Execute notebook
+name: CI
 
-on: [push]
+on: push
 
 jobs:
-  run:
+  super-lint:
+    name: Lint code base
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python
-      uses: actions/setup-python@v1
-    - uses: yaananth/run-notebook@v1
-      env:
-        RUNNER: ${{ toJson(runner) }}
-        SECRETS: ${{ toJson(secrets) }}
-        GITHUB: ${{ toJson(github) }}
-      with:
-        notebook: "Datopian.ipynb"
-        params: "PATHTOPARAMS.json"
-        isReport: False
-        poll: True
-    - uses: actions/upload-artifact@master
-      if: always()
-      with:
-        name: output
-        path: ${{ RUNNER.temp }}/nb-runner
-      env:
-        RUNNER: ${{ toJson(runner) }}
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Run Super-Linter
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  update:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@main
+   - name: Build the data and create local changes
+     uses: actions/setup-python@v2
+     with:
+       python-version: '3.x'
+       architecture: x64
+   - name: Install requiremments
+     run: |
+       pip install -r requirements.txt
+   - name: Process Data  
+     run: |
+       python Datopian.py
+     env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+       
