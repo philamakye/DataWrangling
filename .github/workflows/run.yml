@@ -1,4 +1,4 @@
-name: super-linter
+name: CI
 
 on: push
 
@@ -28,11 +28,23 @@ jobs:
    - name: Install requiremments
      run: |
        pip install -r requirements.txt
-   - name: Process Data
-     run: |
-       jupyter nbconvert --execute Datopian.ipynb
+   - name: Process Data  
+   - uses: yaananth/run-notebook@v1
      env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RUNNER: ${{ toJson(runner) }}
+        SECRETS: ${{ toJson(secrets) }}
+        GITHUB: ${{ toJson(github) }}
+     with:
+        notebook: "Datopian.ipynb"
+        params: "PATHTOPARAMS.json"
+        isReport: False
+        poll: True
+   - uses: actions/upload-artifact@master
+     if: always()
+     with:
+        name: output
+        path: ${{ RUNNER.temp }}/nb-runner
+     env:
+        RUNNER: ${{ toJson(runner) }}
        
        
