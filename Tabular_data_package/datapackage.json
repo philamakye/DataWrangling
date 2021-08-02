@@ -1,0 +1,59 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "resource1",
+      "path": "road_safety_facts_and_figures.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "Country",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Area\n(thousands of km2)[24]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Population in 2018[25]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "GDP per capita in 2018[26]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Population density\n(inhabitants per km2) in 2017[27]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Vehicle ownership\n(per thousand inhabitants) in 2016[28]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Road Network Length\n(in km) in 2013[29]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Total Road Deaths in 2018[30]",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Road deaths\nper Million Inhabitants in 2018[30]",
+            "type": "integer",
+            "format": "default"
+          }
+        ]
+      }
+    }
+  ]
+}
