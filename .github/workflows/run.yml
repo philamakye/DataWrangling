@@ -1,4 +1,4 @@
-name: CI
+name: Super-Linter
 
 on: push
 
