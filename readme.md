@@ -1,2 +1,2 @@
-### Data Wrangling
+# Data Wrangling
 ## Install Dependencies
